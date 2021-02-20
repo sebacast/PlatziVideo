@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -6,54 +6,40 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
 import '../assets/styles/App.scss';
+import useInitialState from '../hooks/useInitialState';
 
+const API = 'http://localhost:3000/initalState';
 const App = () => {
-  const [videos, setVideos] = useState([]);
-  useEffect(() => {
-    fetch('http://localhost:3000/initalState')
-      .then((response) => response.json())
-      .then((data) => setVideos(data));
-  }, []);
-  console.log(videos);
-  return (
+  const initialState = useInitialState(API);
+  return initialState.length === 0 ? <h1>Sin resultados...</h1> : (
     <div className='App'>
       <Header />
       <Search />
-      <Categories title='Mi lista'>
-        <Carousel>
-          <CarouselItem />
+      {initialState.mylist.length > 0 && (
+        <Categories title='Mi lista'>
+          <Carousel>
+            <CarouselItem />
+          </Carousel>
+        </Categories>
+      )}
 
-          <CarouselItem />
+      {initialState.trends.length > 0 && (
+        <Categories title='Tendencias'>
+          <Carousel>
+            {initialState.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
 
-          <CarouselItem />
+          </Carousel>
+        </Categories>
+      )}
 
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+      {initialState.originals.length > 0 && (
+        <Categories title='Originales'>
+          <Carousel>
+            {initialState.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
 
-      <Categories title='Lista 2'>
-        <Carousel>
-          <CarouselItem />
-
-          <CarouselItem />
-
-          <CarouselItem />
-
-          <CarouselItem />
-        </Carousel>
-      </Categories>
-
-      <Categories title='Lista 3'>
-        <Carousel>
-          <CarouselItem />
-
-          <CarouselItem />
-
-          <CarouselItem />
-
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+          </Carousel>
+        </Categories>
+      )}
 
       <Footer />
     </div>
