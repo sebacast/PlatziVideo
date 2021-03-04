@@ -7,7 +7,7 @@ Una aplicación desarrollada en React js para el Curso Práctico de React JS en 
 ## La aplicación
 El primer paso fué componentizar el proyecto Platzi Video (HTML y CSS).
 La idea es tener componentes reutilizables, que reciban el contindo en props.
-Entonces tenemos Categories (que recibe el título de la categoría y un array de objetos con el contenido a mostrar) y tenemos componentes hijos que reciben las propiedades (Carousel y CarouselItem).
+Entonces tenemos Categories (que recibe el título de la categoría y un array de objetos con el contenido a mostrar) y tenemos componentes hijos que reciben las propiedades (Carousel recive el array de objetos y lo mapea para generar cada uno de los CarouselItem)
 
 
 ```jsx
