@@ -6,8 +6,8 @@ Una aplicación desarrollada en React js para el Curso Práctico de React JS en 
 
 ## La aplicación
 El primer paso fué componentizar el proyecto Platzi Video (HTML y CSS).
-La idea era tener componentes reutilizables, que reciban el contindo en props.
-Entonces tenemos Categories (que recibe el título de la categoria y un array de objetos con el contenido a mostrar) y tenemos componentes hijos que reciben las propiedades (Carousel y CarouselItem).
+La idea es tener componentes reutilizables, que reciban el contindo en props.
+Entonces tenemos Categories (que recibe el título de la categoría y un array de objetos con el contenido a mostrar) y tenemos componentes hijos que reciben las propiedades (Carousel y CarouselItem).
 
 
 ```jsx
@@ -97,7 +97,7 @@ export default useInitialState;
 ## Drag Scroll para el Carousel
 
 
-Para el Drag Scroll del Carousel (desplazamiento horizontal) use el proyecto [React Indiana Drag Scroll](https://github.com/Norserium/react-indiana-drag-scroll)
+Para el Drag Scroll del Carousel (desplazamiento horizontal) usé el proyecto [React Indiana Drag Scroll](https://github.com/Norserium/react-indiana-drag-scroll)
 
 
 ```jsx
