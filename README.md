@@ -5,7 +5,7 @@ Una aplicación desarrollada en React js para el Curso Práctico de React JS en 
 ![Vista final](./documentation/platzi-video-vista-final.gif)
 
 
-```
+```jsx
 import React from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
